@@ -1,0 +1,103 @@
+.courseTable {
+  $zero-width: 12%;
+  $x-number: 7;
+  $y-number: 10;
+  $avail-width: (100% - $zero-width) / $x-number;
+  $header-height: 70px;
+  $main-height: calc(100vh - #{$header-height} - 2px);
+  width: calc(100% - 2px);
+  height: calc(100% - 86px);
+  overflow-y: hidden;
+  background: #C6FFDD;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  .header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(242, 246, 247, 0.924);
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+    height: $header-height;
+    font-size: 26px;
+    & .div:first-of-type {
+      visibility: hidden;
+      width: $zero-width;
+    }
+    & .div:nth-of-type(n + 2) {
+      width: $avail-width;
+    }
+    & .div {
+      text-align: center;
+    }
+  }
+  .main {
+    overflow: hidden;
+    display: flex;
+    // justify-items: center;
+    flex-direction: row;
+    background-color: rgba(119, 123, 124, 0.493);
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: $main-height;
+    & .section {
+      // overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: flex-start;
+      & .block {
+        font-weight: bold;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px dashed rgb(219, 219, 219);
+        border-right: 1px dashed rgba(219, 219, 219, 0.383);
+        flex-direction: column;
+        position: relative;
+        .course {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border-radius: 6px;
+          font-size: 26px;
+          font-weight: normal;
+          color:rgb(255, 255, 255);
+          text-shadow: 2px 2px 2px rgba(104, 104, 104, 0.959);
+          border: 1px dashed rgba(245, 245, 245, 0.753);
+          .p{
+            visibility:visible;
+            margin:4px 0;
+          }
+        }
+      }
+    }
+    & .section:nth-of-type(n + 2) {
+      background-color: rgba(255, 255, 255, 0.507);
+      width: $avail-width;
+      text-align: center;
+      & .p{
+        visibility: hidden;
+      }
+    }
+    & .section:first-of-type {
+      width: $zero-width;
+      background-color: #f2f6f785;
+      font-size: 24px;
+      .p:first-of-type {
+        color: #9c9c9c;
+      }
+      .p:nth-of-type(2) {
+        color: #666;
+        font-weight: normal;
+      }
+      & .block {
+        // flex-shrink:0.5;
+      }
+    }
+  }
+}
