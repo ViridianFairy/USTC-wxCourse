@@ -57,7 +57,8 @@ const courseTable: FC<unknown> = props => {
               {col.map((val, index) => (
                 <View className="block" id="block" key={index}>
                   <View className="p">{index + 1}</View>
-                  <View className="p">{val}</View>
+                  {/* <View className="p">{val}</View> */}
+                  <View className="p">{}</View>
                 </View>
               ))}
             </View>
@@ -67,9 +68,10 @@ const courseTable: FC<unknown> = props => {
                 <View className="block block2" key={index}>
                   <View className="p">0</View>
                   <View className="p">0</View>
-                  {val  && <View className="course" style={getCourseStyle(val.length, val.id)}>
-                    <View className="p">{(val as drawCourseType).shortName}</View>
-                    <View className="p">{(val as drawCourseType).place}</View>
+                  {(val && typeof val !='string')  && <View className="course" style={getCourseStyle(val.length, val.data.id)}>
+                    
+                    <View className="p">{val.data.fullName}</View>
+                    <View className="p">{val.data.times[val.index].place}</View>
                   </View>}
                 </View>
               ))}

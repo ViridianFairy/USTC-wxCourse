@@ -31,10 +31,10 @@
         "src/components/*"
       ],
       "@utils": [
-        "src/utils"
+        "src/pages/utils"
       ],
       "@utils/*": [
-        "src/utils/*"
+        "src/pages/utils/*"
       ],
       "@service": [
         "src/service"
