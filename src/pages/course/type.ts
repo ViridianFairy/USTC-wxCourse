@@ -28,11 +28,11 @@ interface CourseType{
 /**
  * 绘制方格时所用的，描述某项课程的信息
  */
-interface DrawCourseType{
+type DrawCourseType = {
     length: number,
     index: number,
     data: CourseType 
-}
+} | string
 /**
  * 描述某学期的信息
  */
@@ -47,5 +47,5 @@ interface TermType{
 interface CourseComponentType{
     month: number,
     dayArr: number[],
-    COURSE: DrawCourseType | string
+    drawCourseArr: DrawCourseType[][]
 }

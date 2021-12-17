@@ -1,4 +1,4 @@
-export const arr: CourseType[] = [{
+export const COURSE: CourseType[] = [{
     id:0,
     fullName:'算法设计与分析',
     shortName:'算导',
@@ -57,7 +57,8 @@ export const arr: CourseType[] = [{
     learnScore:2,
     teacher:'张曙',
     college:'软件学院苏州',
-},{
+},
+{
     id:2,
     fullName:'信息安全实践',
     shortName:'信安',
@@ -83,4 +84,59 @@ export const arr: CourseType[] = [{
     learnScore:2,
     teacher:'张曙',
     college:'软件学院苏州',
-}]
+},
+{
+    id:2,
+    fullName:'信息安全实践',
+    shortName:'信安',
+    times:[
+        {
+            week:[2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18],
+            time: 3,
+            period:[1,2],
+            place:'明德楼210',
+        },
+        {
+            week:[2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18],
+            time: 7,
+            period:[9,10],
+            place:'思贤楼308',
+        },
+    ],
+    exams:[
+    ],
+    courseType: '限选课（八强）',
+    courseId: 'EIEN6004P',
+    learnHours:40,
+    learnScore:2,
+    teacher:'张曙',
+    college:'软件学院苏州',
+},
+{
+    id:3,
+    fullName:'工程伦理',
+    shortName:'工程伦理',
+    times:[
+        {
+            week:[13,14,15,16,17],
+            time: 4,
+            period:[5,6],
+            place:'敏学楼101',
+        },
+        {
+            week:[13,14,15,16,17],
+            time: 5,
+            period:[1,2],
+            place:'敏学楼101',
+        },
+    ],
+    exams:[
+    ],
+    courseType: '限选课（八强）',
+    courseId: 'EIEN6004P',
+    learnHours:40,
+    learnScore:2,
+    teacher:'张曙',
+    college:'软件学院苏州',
+},
+]

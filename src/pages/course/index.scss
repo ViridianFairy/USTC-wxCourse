@@ -1,0 +1,26 @@
+#courseMain {
+	width: 300%;
+	height: 100%;
+   overflow: hidden;
+   position: relative;
+	 /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   #course-bg{
+      position: absolute;
+      z-index: -1;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+		20deg,
+		#f7797d99 ,
+		#fbd88699,
+		#c6ffdd99,
+		#ffffff 70%
+	);
+   }
+   .course-wrapper{
+      width:100vw;
+      height: 100vh;
+   }
+}

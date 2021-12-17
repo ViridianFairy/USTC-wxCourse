@@ -30,6 +30,18 @@
       "@components/*": [
         "src/components/*"
       ],
+      "@constant": [
+        "src/constant/"
+      ],
+      "@constant/*": [
+        "src/constant/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@hooks": [
+        "src/hooks"
+      ],
       "@utils": [
         "src/pages/utils"
       ],

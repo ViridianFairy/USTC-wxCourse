@@ -1,6 +1,6 @@
 export default {
   pages: [
-    "pages/courseTable/index",
+    "pages/course/index",
     "pages/calculator/history/index",
     "pages/calculator/monthly-payments/index",
     "pages/calculator/index"
