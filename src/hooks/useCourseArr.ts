@@ -13,7 +13,7 @@ export const useCourseArr = () => {
 			
 			if (index >= 1) return
 			var weekSum = getDateInterval(beginDay, endDay) / 7
-			for (let i = 0; i < weekSum; i++) {
+			for (let i = 1; i <= weekSum; i++) {
 				//开始处理一周内的，也就是一页课程
 				let dayArr: number[] = []
 				let drawCourseArr: DrawCourseType[][] = new Array(WEEK.length)
@@ -31,13 +31,17 @@ export const useCourseArr = () => {
 				for (const c of COURSE) {
 					// c是一门课程的详细信息
 					for (let index in c.times) {
-						const { time, period } = c.times[index]
+						const { time, period, week } = c.times[index]
+						let isPause: boolean = !week.includes(i) 
 						let start: number = (period[0] as number) - 1
-						drawCourseArr[time][start] = {
-							length: period.length,
-							index: Number(index),
-							data: c,
-						}
+						let blockObj = drawCourseArr[time][start]
+						if(!blockObj || (typeof blockObj == 'object'&& blockObj.isPause && !isPause))
+							drawCourseArr[time][start] = {
+								isPause,
+								length: period.length,
+								index: Number(index),
+								data: c,
+							}
 					}
 				}
 				syncCourseArr.push(obj)

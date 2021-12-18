@@ -54,6 +54,12 @@
       "@service/*": [
         "src/service/*"
       ],
+      "@src": [
+        "src"
+      ],
+      "@src/*": [
+        "src/*"
+      ],
     },
   },
   "exclude": [

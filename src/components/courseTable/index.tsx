@@ -17,14 +17,16 @@ const CourseTable: FC<CourseComponentType> = props => {
 	useReady(() => {
 		updateBlock()
 	})
-	const getCourseStyle = (length: number, id: number) => {
+	const getCourseStyle = (length: number, id: number, isPause: boolean) => {
+		const [backgroundColor, color] = !isPause ? style.getColor(2, id) : style.getPauseColor()
 		return {
 			zIndex: 1,
-			left: 0,
-			top: style.gap / 2 + "px",
-			height: size.y * length - style.gap + "px",
-			width: size.x + "px",
-			backgroundColor: style.color[id],
+			left: style.widthNarrow / 2 + "px",
+			top: style.heightNarrow / 2 + "px",
+			height: size.y * length - style.heightNarrow + "px",
+			width: size.x - style.widthNarrow + "px",
+			backgroundColor,
+			color,
 		}
 	}
 	return (
@@ -66,8 +68,8 @@ const CourseTable: FC<CourseComponentType> = props => {
 									<View className="p">0</View>
 									<View className="p">0</View>
 									{val && typeof val != "string" && (
-										<View className="course" style={getCourseStyle(val.length, val.data.id)}>
-											<View className="p">{val.data.fullName}</View>
+										<View className="course" style={getCourseStyle(val.length, val.data.id, val.isPause)}>
+											<View className="p">{val.isPause && '[非本周]'}{val.data.fullName}</View>
 											<View className="p">{val.data.times[val.index].place}</View>
 										</View>
 									)}

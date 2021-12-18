@@ -27,11 +27,16 @@ interface CourseType{
 }
 /**
  * 绘制方格时所用的，描述某项课程的信息
+ * 方块高度（单位：矩形高）
+ * 方块位置（单位：矩形高）
+ * 课程数据
+ * true时表示非本周课，开启灰色
  */
 type DrawCourseType = {
     length: number,
     index: number,
     data: CourseType 
+    isPause: boolean 
 } | string
 /**
  * 描述某学期的信息

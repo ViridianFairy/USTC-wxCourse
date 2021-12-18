@@ -12,14 +12,14 @@ const Course: FC<unknown> = props => {
 
 	useReady(() => {})
 	return (
-		<View id="courseMain">
+		<View id="courseMain" onTouchMove={()=>{}}>
 			<View id="course-bg"></View>
       <Swiper
         className='course-wrapper'
         current ={0}
         >
 				{CourseArr.map(({ drawCourseArr, dayArr, month }, index) => {
-					if (index >= 3) return
+					// if (index >= 5) return
 					// console.log(1)
 					return (
             <SwiperItem>

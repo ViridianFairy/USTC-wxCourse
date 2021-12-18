@@ -1,8 +1,6 @@
 import { useCallback, useEffect, useState } from "react"
 const MONTH = [0, 31, 28, 31, 30 ,31, 30, 31 ,31,30,31,30,31]
 export const useDate = (initalStr?: string) => {
-   
-   
 	const [date, _setDate] = useState<DateType>(BUILD(initalStr))
    const addDay = ()=>{
       date.day++
