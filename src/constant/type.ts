@@ -23,7 +23,6 @@ interface CourseType{
     learnScore: number,
     teacher:string,
     college:string
-    
 }
 /**
  * 绘制方格时所用的，描述某项课程的信息
@@ -52,5 +51,13 @@ interface TermType{
 interface CourseComponentType{
     month: number,
     dayArr: number[],
-    drawCourseArr: DrawCourseType[][]
+    drawCourseArr: DrawCourseType[][],
+    /**
+     * 加载状态：0为加载条，1为加载完毕
+     */
+    status: 0 | 1 
+    courseBlockWidth:number,
+    setCourseBlockWidth:any,
+    courseBlockHeight:number,
+    setCourseBlockHeight:any,
 }

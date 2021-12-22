@@ -7,6 +7,7 @@ import { useDate } from "./useDate"
 export const useCourseArr = () => {
 	const [CourseArr, setCourseArr] = useState<CourseComponentType[]>([])
 	const {date, addDay, getDateInterval, setDate} = useDate(TERM[0].beginDay)
+	const [initialWeek, setInittialWeek] = useState<number>(initInitalWeek)
 	useEffect(() => {
 		var syncCourseArr: CourseComponentType[] = []
 		TERM.forEach(({ beginDay, endDay, name }, index) => {
@@ -49,11 +50,15 @@ export const useCourseArr = () => {
 				//结束处理一周内的
 			}
 		})
-		// console.log(CourseArr);
 		setCourseArr(syncCourseArr)
 	}, [])
+	function initInitalWeek(){
+		let days = getDateInterval(TERM[0].beginDay, new Date().toString())
+		return parseInt(String(days / 7))
+	}
 	return {
 		CourseArr,
 		setCourseArr,
+		initialWeek,
 	}
 }

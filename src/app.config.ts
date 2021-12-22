@@ -1,12 +1,11 @@
 export default {
   pages: [
-    "pages/course/index",
-    "pages/calculator/history/index",
-    "pages/calculator/monthly-payments/index",
-    "pages/calculator/index"
+    "pages/course/course",
+    "pages/user/user",
+    "pages/main/main",
   ],
   window: {
-    backgroundTextStyle: "light",
+    backgroundTextStyle: "dark",
     navigationBarBackgroundColor: "#fff",
     navigationBarTitleText: "WeChat",
     navigationBarTextStyle: "black"
@@ -18,20 +17,20 @@ export default {
     "list": [
       {
         "selectedIconPath": "assets/images/main.png",
-        "iconPath": "assets/images/main.png",
-        "pagePath": "pages/course/index",
+        "iconPath": "assets/images/main_grey.png",
+        "pagePath": "pages/main/main",
         "text": "首页"
       },
       {
         "selectedIconPath": "assets/images/course.png",
-        "iconPath": "assets/images/course.png",
-        "pagePath": "pages/course/index",
+        "iconPath": "assets/images/course_grey.png",
+        "pagePath": "pages/course/course",
         "text": "课程表"
       },
       {
-        "selectedIconPath": "assets/images/mine.png",
-        "iconPath": "assets/images/mine.png",
-        "pagePath": "pages/course/index",
+        "selectedIconPath": "assets/images/user.png",
+        "iconPath": "assets/images/user_grey.png",
+        "pagePath": "pages/user/user",
         "text": "我的"
       }
     ]
