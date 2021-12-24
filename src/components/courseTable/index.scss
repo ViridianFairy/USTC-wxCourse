@@ -121,24 +121,3 @@
      }
    }
  }
- $base-line-height: 48px;
-$white: #accce7;
-$off-white: rgba($white, 0.2);
-$spin-duration: 1s;
-$pulse-duration: 750ms;
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.loading {
-  border-radius: 50%;
-  width: $base-line-height;
-  height: $base-line-height;
-  border: .25rem solid $off-white;
-  border-top-color: $white;
-  animation: spin $spin-duration infinite linear;
-}

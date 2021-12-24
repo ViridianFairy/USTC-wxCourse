@@ -16,6 +16,7 @@ const CourseTable: FC<CourseComponentType> = props => {
 	const [finish, setFinish] = useState<(1 | 0)>(status)
 	const [size, setSize] = useState<{ x: number; y: number }>({ x: courseBlockWidth, y: courseBlockHeight })
 	const updateBlock = async () => {
+		try {
 			let dom = $(".block2")
 			let y = await dom.height()
 			let x = await dom.width()
@@ -23,6 +24,13 @@ const CourseTable: FC<CourseComponentType> = props => {
 			setCourseBlockWidth(x)
 			setSize({ x, y })
 			setFinish(1)
+		} catch (error) {
+			console.log(error);
+			setTimeout(()=>{
+				updateBlock()
+			},100)
+		}
+			
 	}
 	// useEffect(()=>{
 	// 	if(courseBlockWidth!==0){

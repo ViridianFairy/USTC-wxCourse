@@ -1,5 +1,6 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import "./app.scss";
+import NavBar from "./pages/navBar/NavBar";
 import { setGlobalData } from "./utils";
 /**
  * nowDay
@@ -22,10 +23,13 @@ class App extends Component {
 
   componentDidCatchError() {}
 
-  // this.props.children 是将要会渲染的页面
+  // 是将要会渲染的页面
   render() {
-    return this.props.children;
+    return (
+      <>
+      {this.props.children}
+      </>
+    )
   }
 }
-
-export default App;
+export default App

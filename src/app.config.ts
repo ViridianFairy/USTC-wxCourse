@@ -1,16 +1,19 @@
 export default {
+  custom:true,
   pages: [
     "pages/course/course",
     "pages/user/user",
     "pages/main/main",
   ],
   window: {
+    navigationStyle:"custom",
     backgroundTextStyle: "dark",
     navigationBarBackgroundColor: "#fff",
     navigationBarTitleText: "WeChat",
     navigationBarTextStyle: "black"
   },
   tabBar: {
+    custom:true,
     "color": "#999",
         "selectedColor": "#3D98FF",
         "borderStyle": "white",

@@ -17,6 +17,7 @@
     "rootDir": ".",
     "jsx": "react",
     "jsxFactory": "React.createElement",
+    "jsxFragmentFactory":"React.Fragment",
     "allowJs": true,
     "resolveJsonModule": true,
     "typeRoots": [
