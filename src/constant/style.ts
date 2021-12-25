@@ -36,11 +36,19 @@ const colorArr: ColorType[] = [
 		bg: ["#212B23", "#597753", "#C9B36D", "#532A26", "#6D5D38"],
 	},
 	{
-		font: "#ffffff",
-		bg: ["#CEA894", "#E7A493", "#C58284", "#b5838d", "#6d6875"],
+		font: "#eeeeee",
+		bg: [
+		"linear-gradient(90deg,#689AD899, #4C8AD6cc)", 
+		"linear-gradient(90deg,#6065DD99, #5155DDcc)", 
+		"linear-gradient(90deg,#53CFD199, #31CFD3cc)", 
+		"linear-gradient(90deg,#979CFE99, #979CFEcc)", 
+		"linear-gradient(90deg,#B492EA99, #B492EAcc)",
+		"linear-gradient(90deg,#73A9EC99, #5397EBcc)", 
+		"linear-gradient(90deg,#6F98E699, #4C8AD6DE)", 
+	],
 	},
 	{
-		font: "#ffffff",
+		font: "#eeeeee",
 		bg: ["#295374", "#2a3e79", "#2e2a7e", "#492b82", "#662b87"],
 	},
 ]
@@ -48,3 +56,9 @@ interface ColorType {
 	font: string
 	bg: string[]
 }
+// bg: [
+// 	"linear-gradient(90deg,#77B0F5, #569DF5)", 
+// 	"#E7A493", #5155DD
+// 	"#C58284", 
+// 	"#b5838d", 
+// 	"#6d6875"

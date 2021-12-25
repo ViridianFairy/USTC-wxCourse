@@ -1,5 +1,5 @@
 export default {
-  custom:true,
+  // custom:true,
   pages: [
     "pages/course/course",
     "pages/user/user",

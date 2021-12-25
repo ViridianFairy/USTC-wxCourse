@@ -12,6 +12,7 @@ const Main: FC<unknown> = props => {
 	return (
 		<View id="courseMain">
 			<NavBar needBackIcon={true} mainTitle={'需求详情2'}></NavBar>
+			
 		</View>
 	)
 }

@@ -1,45 +1,32 @@
-import Taro from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import classNames from 'classnames'
-import './index.scss'
- 
-export default class TabBar extends Taro.Component {
-    // 默认参数配置
-    static defaultProps = {
-        current: 0,
-        background: '#fff',
-        color: '#999',
-        tintColor: '#6190e8',
-        fixed: false,
-        onClick: () => {},
-        tabList: []
-    }
-    constructor(props) {
-        super(props)
-        this.state = {
-            updateCurrent: props.current
-        }
-    }
-    render() {
-        const { background, color, tintColor, fixed } = this.props
-        const { updateCurrent } = this.state
-        
-        return (
-            <View className={classNames('taro__tabbar', fixed && 'taro__tabbar--fixed')}>
-                <View className={classNames('taro__tabbar-list', fixed && 'taro__tabbar-list--fixed')} style={{backgroundColor: background}}>
-                    {this.props.tabList.map((item, index) => (
-                        <View className="taro__tabbar-item taro__tabbar-item--active" key={index} onClick={this.updateTabbar.bind(this, index)}>
-                            <View className="taro__tabbar-icon">
-                                <Text className="iconfont taro__tabbar-iconfont" style={{color: updateCurrent == index ? tintColor : color}}>{item.icon}</Text>
-                                {/* 圆点 */}
-                                {!!item.badge && <Text className="taro__badge taro__tabbar-badge">{item.badge}</Text>}
-                                {!!item.dot && <Text className="taro__badge-dot taro__tabbar-badge--dot"></Text>}
-                            </View>
-                            <Text className="taro__tabbar-title" style={{color: updateCurrent == index ? tintColor : color}}>{item.title}</Text>
-                        </View>
-                    ))}
-                </View>
-            </View>
-        );
-    }
+import React, { FC, useState } from "react"
+import "./index.scss"
+import { View, Image } from "@tarojs/components"
+import ICON_COURSE from "@src/assets/images/course.png"
+import ICON_MAIN from "@src/assets/images/main.png"
+import ICON_MINE from "@src/assets/images/user.png"
+import { useReady } from "@tarojs/taro"
+const TabBar: FC<unknown> = props => {
+	return (
+		<View id="tab-bar-wrapper">
+		<View id="tab-bar">
+			{/* <View className="blocker"></View> */}
+			<View className="wrapper">
+				<View className="item">
+					<Image src={ICON_MAIN} className="icon"></Image>
+					<View className="p">首页</View>
+				</View>
+				<View className="item">
+					<Image src={ICON_COURSE} className="icon"></Image>
+					<View className="p">课程表</View>
+				</View>
+				<View className="item">
+					<Image src={ICON_MINE} className="icon"></Image>
+					<View className="p">我的</View>
+				</View>
+			</View>
+		</View>
+		</View>
+	)
 }
+
+export default React.memo(TabBar)

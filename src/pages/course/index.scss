@@ -1,6 +1,7 @@
+@import '@src/common.scss';
 #courseMain {
 	width: 100%;
-	height: 100%;
+   height:100%;
    overflow: hidden;
    position: relative;
 	 /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -12,19 +13,18 @@
       width: 100%;
       height: 100%;
 
-      background: linear-gradient(
-		to bottom,
-      #ffffff 10%,
-		#f7797d22,
-		#fbd88622,
-		/*#c6ffdd22,*/
-		#ffffff 100%
-	);
+   //    background: linear-gradient(
+	// 	to bottom,
+   //    #ffffff 10%,
+	// 	#f7797d22,
+	// 	#fbd88622,
+	// 	/*#c6ffdd22,*/
+	// 	#ffffff 100%
+	// );
 }
    .course-wrapper{
-      width:100vw;
-      height: 100vh;
-      // position:absolute;
+      width:100%;
+      height: 100%;
    }
 }
 #inf-wrapper{

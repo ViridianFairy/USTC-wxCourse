@@ -51,7 +51,7 @@ const CourseTable: FC<CourseComponentType> = props => {
 			top: style.heightNarrow / 2 + "px",
 			height: size.y * length - style.heightNarrow + "px",
 			width: size.x - style.widthNarrow + "px",
-			backgroundColor,
+			background:backgroundColor,
 			color,
 		}
 	}

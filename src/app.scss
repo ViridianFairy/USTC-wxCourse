@@ -1,26 +1,71 @@
 @import "~taro-ui/dist/style/index.scss";
 
-
 /*  #ifdef  h5  */
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 taro-view-core,
 taro-text-core,
 div {
-  font-size: 32px;
+	font-size: 32px;
 }
 /*  #endif  */
 
 /*  #ifdef  weapp  */
 view,
 text {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 /*  #endif  */
-page{
-  overflow: hidden;
+page {
+	overflow: hidden;
+	height: 100%;
 }
+#main {
+	height: 100%;
+	position: relative;
+	background: linear-gradient(90deg,#343D5A, #1A2235);
+	display: flex;
+   flex-direction:column; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $base-line-height: 48px;
 $white: #accce7;
@@ -28,28 +73,29 @@ $off-white: rgba($white, 0.2);
 $spin-duration: 1s;
 $pulse-duration: 750ms;
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
-.loading, .bigLoading {
-  border-radius: 50%;
-  width: $base-line-height;
-  height: $base-line-height;
-  border: .25rem solid $off-white;
-  border-top-color: $white;
-  animation: spin $spin-duration infinite linear;
+.loading,
+.bigLoading {
+	border-radius: 50%;
+	width: $base-line-height;
+	height: $base-line-height;
+	border: 0.25rem solid $off-white;
+	border-top-color: $white;
+	animation: spin $spin-duration infinite linear;
 }
-.bigLoading{
-  width: 50vw;
-  height: 50vw;
+.bigLoading {
+	width: 50vw;
+	height: 50vw;
 }
-.bigLoading-wrapper{
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.bigLoading-wrapper {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

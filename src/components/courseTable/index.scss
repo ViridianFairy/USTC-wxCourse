@@ -1,25 +1,27 @@
+@import '@src/common.scss';
 .courseTable {
    $zero-width: 5%;
    $x-number: 7;
    $y-number: 10;
    $avail-width: (100% - $zero-width) / $x-number;
+   // 日期部分高度
    $header-height: 90px;
-   $main-height: calc(100vh - #{$header-height} - 2px);
-   $small-font:20px;
-   $normal-font:24px;
-   $big-font:29px;
-   $border-color:#aaaaaa;
+   // 主框高度
+   $main-height: calc(100% - #{$header-height});
+  //  $main-height: calc(100vh - #{$header-height} - 2px);
+
    width: calc(100% - 2px);
-   height: calc(100% - 0px);
+   height: 100%;
    overflow-y: hidden;
  
    .header {
      display: flex;
      justify-content: space-around;
      align-items: center;
-     border-bottom-color: rgba(0, 0, 0, 0.1);
+     border-bottom-color: $border-color;
      height: $header-height;
      font-size: $normal-font;
+     color: $font-color-light;
      & .div:first-of-type { //月份
       //  visibility: hidden; 
       // 如果要隐藏月份的话
@@ -58,7 +60,7 @@
      display: flex;
      // justify-items: center;
      flex-direction: row;
-     border-bottom-color: rgba(0, 0, 0, 0.1);
+     border-bottom-color: $border-color;
      width: 100%;
      height: $main-height;
      & .section {  //通用竖栏容器
@@ -74,8 +76,8 @@
          display: flex;
          align-items: center;
          justify-content: center;
-         border-top: 1px dashed rgb(219, 219, 219);
-         border-right: 1px dashed rgba(219, 219, 219, 0.383);
+         border-top: 1px dashed $border-color;
+         border-right: 1px dashed $border-color;
          flex-direction: column;
          position: relative;
          .course {
@@ -84,7 +86,7 @@
            flex-direction: column;
            align-items: center;
            justify-content: center;
-           border-radius: 6px;
+           border-radius: 16px;
            font-size: $normal-font;
            font-weight: normal;
            color:rgb(255, 255, 255);
@@ -109,11 +111,12 @@
        width: $zero-width;
        // background-color: #f2f6f788;
        font-size: $normal-font;
+       color:$font-color-light;
        .p:first-of-type {
-         color: #3d3d3d;
+         
        }
        .p:nth-of-type(2) {
-         color: #3d3d3d;
+         
        }
        & .block {
          // flex-shrink:0.5;

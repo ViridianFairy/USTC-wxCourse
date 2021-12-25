@@ -1,6 +1,7 @@
 .nav_custom_bar{
    width: 100%;
-   background: linear-gradient(90deg,#ffa15b, #ff7954);
+  
+  background: transparent;
    display: flex;
    flex-direction: row;
    justify-content: center;
@@ -20,7 +21,7 @@
      font-family: Microsoft YaHei, Microsoft YaHei-Regular;
      font-weight: 400;
      text-align: left;
-     color: #f7f7f7;
+     color: #b4b4b4;
      margin-bottom: 20px;
    }
  }

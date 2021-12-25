@@ -1,3 +1,4 @@
+import { View } from "@tarojs/components";
 import React, { Component } from "react";
 import "./app.scss";
 import NavBar from "./pages/navBar/NavBar";
@@ -27,6 +28,7 @@ class App extends Component {
   render() {
     return (
       <>
+      <View>123</View>
       {this.props.children}
       </>
     )

@@ -5,7 +5,7 @@ import { useReady } from "@tarojs/taro"
 import CourseTable from "@components/courseTable"
 import { useCourseArr } from "@hooks/useCourseArr"
 import NavBar from "../navBar/NavBar"
-import TabBar from "../tabBar/tabBar"
+import TabBar from "../tabBar/TabBar"
 // Swiper
 const Course: FC<unknown> = props => {
 	const { CourseArr, initialWeek } = useCourseArr()
@@ -46,11 +46,11 @@ const Course: FC<unknown> = props => {
 	}
 
 	return (
-		<>
+		<View id="main">
 		<NavBar needBackIcon={true} mainTitle={'需求详情'}></NavBar>
 		<View id="courseMain" onTouchMove={() => {}}>
 			 
-			<View id="course-bg"></View>
+			{/* <View id="course-bg"></View> */}
 			{
 				<Swiper className="course-wrapper" current={initialWeek} onChange={onChange} skipHiddenItemLayout={true}>
 					{shortCourseArr.map((props, index) => {
@@ -86,26 +86,10 @@ const Course: FC<unknown> = props => {
 					})}
 				</Swiper>
 			}
-			{/* <Swiper className="course-wrapper" current={initialWeek} onChange={onChange}>
-				{shortCourseArr.map(({ drawCourseArr, dayArr, month }, index) => {
-					return (
-						<SwiperItem>
-							{!month ? <View>no</View> :<View className="course-wrapper">
-								<CourseTable dayArr={dayArr}
-									month={month}
-									drawCourseArr={drawCourseArr}></CourseTable>
-									{console.log('yes')}
-							</View>}
-						</SwiperItem>
-					)
-			
-				})}
-				<SwiperItem>123</SwiperItem>
-			</Swiper> */}
 		</View>
+		<TabBar></TabBar>
 		
-		{/* <TabBar></TabBar> */}
-		</>
+		</View>
 	)
 	function onChange(e: any) {
 		var cur = e.detail.current
@@ -114,11 +98,3 @@ const Course: FC<unknown> = props => {
 }
 
 export default React.memo(Course)
-
-{
-	/* <Swiper>
-{DrawCourseTable(0)}
-{DrawCourseTable(0)}
-{DrawCourseTable(0)}
-</Swiper> */
-}
