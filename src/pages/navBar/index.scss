@@ -1,3 +1,4 @@
+@import '@src/common.scss';
 .nav_custom_bar{
    width: 100%;
   
@@ -15,13 +16,16 @@
      &.hidden{
        display: none;
      }
+     #helpBubble{
+       
+     }
    }
    .nav_custom_bar_title{
      font-size: 32px;
      font-family: Microsoft YaHei, Microsoft YaHei-Regular;
      font-weight: 400;
      text-align: left;
-     color: #b4b4b4;
+     color: $font-color-light;
      margin-bottom: 20px;
    }
  }

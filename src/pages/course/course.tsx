@@ -1,17 +1,20 @@
-import React, { FC, useEffect, useState } from "react"
+import React, { FC, useEffect, useMemo, useState } from "react"
 import "./index.scss"
 import { View, SwiperItem, Swiper } from "@tarojs/components"
-import { useReady } from "@tarojs/taro"
+import Taro, { useReady } from "@tarojs/taro"
 import CourseTable from "@components/courseTable"
 import { useCourseArr } from "@hooks/useCourseArr"
 import NavBar from "../navBar/NavBar"
 import TabBar from "../tabBar/TabBar"
-// Swiper
+
+/* 左右各多加载一个 */
+const PRE_LOAD = 2;
 const Course: FC<unknown> = props => {
 	const { CourseArr, initialWeek } = useCourseArr()
 	const [shortCourseArr, setShortCourseArr] = useState<(CourseComponentType | null)[]>([])
 	const [courseBlockWidth, setCourseBlockWidth] = useState<number>(0)
 	const [courseBlockHeight, setCourseBlockHeight] = useState<number>(0)
+	const [weekNum, setWeekNum] = useState<number>(initialWeek)
 	// const [initialId, setInitialId] = useState<number>(0)
 
 	/**
@@ -21,13 +24,15 @@ const Course: FC<unknown> = props => {
 		if (!initialWeek) return
 		handleShortCourseArr(true, initialWeek)
 	}, [CourseArr])
-
-	useEffect(() => {
-		// console.log(shortCourseArr)
-	}, [shortCourseArr])
+	useEffect(()=>{
+		console.log(shortCourseArr);
+		  //
+		console.log(shortCourseArr[14]);
+		
+	},[shortCourseArr])
 
 	const handleShortCourseArr = (isInit: boolean, begin: number) => {
-		console.log(begin)
+		// console.log(begin)
 
 		var len = CourseArr.length
 		var arr: (CourseComponentType | null)[] = []
@@ -35,7 +40,7 @@ const Course: FC<unknown> = props => {
 		// 开始处理
 		if (isInit) arr = new Array(len).fill(null)
 		else arr = Array.from(shortCourseArr)
-		for (let i = -1; i <= 1; i++) {
+		for (let i = -PRE_LOAD; i <= PRE_LOAD; i++) {
 			// j是真正要设置的下标
 			let j = begin + i
 			if (j >= CourseArr.length || j < 0) continue
@@ -44,15 +49,22 @@ const Course: FC<unknown> = props => {
 		}
 		setShortCourseArr(arr)
 	}
-
+	const getWeekText = ()=>{
+		var str = `第${weekNum+1}周`
+		if(weekNum == initialWeek) return str
+		return str + '（非本周）'
+	}
 	return (
 		<View id="main">
-		<NavBar needBackIcon={true} mainTitle={'需求详情'}></NavBar>
+		<NavBar bubble={{icon:'help',text:
+		'左右滑动：切换周数\n点击课程：查看课程信息'}} 
+		mainTitle={getWeekText()}></NavBar>
 		<View id="courseMain" onTouchMove={() => {}}>
 			 
 			{/* <View id="course-bg"></View> */}
 			{
-				<Swiper className="course-wrapper" current={initialWeek} onChange={onChange} skipHiddenItemLayout={true}>
+				// skipHiddenItemLayout={true}
+				<Swiper className="course-wrapper" current={initialWeek} onChange={onChange} >
 					{shortCourseArr.map((props, index) => {
 						if (props === null) {
 							return (
@@ -78,7 +90,7 @@ const Course: FC<unknown> = props => {
 										courseBlockWidth={courseBlockWidth}
 										courseBlockHeight={courseBlockHeight}
 										setCourseBlockHeight={num => setCourseBlockHeight(num)}
-										setCourseBlockWidth={num => setCourseBlockWidth(num)}></CourseTable>
+										setCourseBlockWidth={num => setCourseBlockWidth(num)}/>
 									<View className="loading"></View>
 								</View>
 							</SwiperItem>
@@ -87,12 +99,14 @@ const Course: FC<unknown> = props => {
 				</Swiper>
 			}
 		</View>
-		<TabBar></TabBar>
+		<TabBar press={1}></TabBar>
 		
 		</View>
 	)
 	function onChange(e: any) {
 		var cur = e.detail.current
+		wx.vibrateShort();
+		setWeekNum(cur)
 		handleShortCourseArr(false, cur)
 	}
 }

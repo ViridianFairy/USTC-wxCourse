@@ -27,10 +27,10 @@ class App extends Component {
   // 是将要会渲染的页面
   render() {
     return (
-      <>
+      <View className="123">
       <View>123</View>
       {this.props.children}
-      </>
+      </View>
     )
   }
 }

@@ -3,26 +3,31 @@ import "./index.scss"
 import { View, Image } from "@tarojs/components"
 import ICON_COURSE from "@src/assets/images/course.png"
 import ICON_MAIN from "@src/assets/images/main.png"
-import ICON_MINE from "@src/assets/images/user.png"
-import { useReady } from "@tarojs/taro"
-const TabBar: FC<unknown> = props => {
+import ICON_USER from "@src/assets/images/user.png"
+import Taro, { useReady } from "@tarojs/taro"
+const MEMU:MenuType[] = [
+	{text:'首页',id:'main',icon:ICON_MAIN},
+	{text:'课程表',id:'course',icon:ICON_COURSE},
+	{text:'我的',id:'user',icon:ICON_USER},
+]
+const TabBar: FC<{press: number}> = ({press}) => {
+	const onClick = (url, index)=>{
+		Taro.switchTab({
+			url
+		}
+	  )
+	}
 	return (
 		<View id="tab-bar-wrapper">
 		<View id="tab-bar">
 			{/* <View className="blocker"></View> */}
 			<View className="wrapper">
-				<View className="item">
-					<Image src={ICON_MAIN} className="icon"></Image>
-					<View className="p">首页</View>
+				{MEMU.map(({text, id, icon}, index)=>{
+					return <View className="item" onClick={()=>onClick(`../${id}/${id}`, index)}>
+					{<Image src={icon} style={{'filter':index!=press?'grayscale(75%)':''}} className="icon"/>}
+					<View className="p" style={{'color':index!=press?'#999':''}}>{text}</View>
 				</View>
-				<View className="item">
-					<Image src={ICON_COURSE} className="icon"></Image>
-					<View className="p">课程表</View>
-				</View>
-				<View className="item">
-					<Image src={ICON_MINE} className="icon"></Image>
-					<View className="p">我的</View>
-				</View>
+				})}
 			</View>
 		</View>
 		</View>
@@ -30,3 +35,8 @@ const TabBar: FC<unknown> = props => {
 }
 
 export default React.memo(TabBar)
+interface MenuType{
+	text: string,
+	id: string,
+	icon: any
+}

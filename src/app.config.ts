@@ -1,8 +1,9 @@
 export default {
   // custom:true,
   pages: [
-    "pages/course/course",
     "pages/user/user",
+    "pages/course/course",
+    
     "pages/main/main",
   ],
   window: {
@@ -20,19 +21,19 @@ export default {
     "list": [
       {
         "selectedIconPath": "assets/images/main.png",
-        "iconPath": "assets/images/main_grey.png",
+        "iconPath": "assets/images/main.png",
         "pagePath": "pages/main/main",
         "text": "首页"
       },
       {
         "selectedIconPath": "assets/images/course.png",
-        "iconPath": "assets/images/course_grey.png",
+        "iconPath": "assets/images/course.png",
         "pagePath": "pages/course/course",
         "text": "课程表"
       },
       {
         "selectedIconPath": "assets/images/user.png",
-        "iconPath": "assets/images/user_grey.png",
+        "iconPath": "assets/images/user.png",
         "pagePath": "pages/user/user",
         "text": "我的"
       }

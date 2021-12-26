@@ -44,6 +44,10 @@ interface TermType{
     beginDay: string, //应为星期一
     endDay: string,  //应为星期日
     name: string
+    /**
+     * 对周数的偏移修正：如果前几周统一没有课，但周数仍要计算的情况
+     */
+    offset :number
 }
 /**
  * 应当为课程表组件传入的信息

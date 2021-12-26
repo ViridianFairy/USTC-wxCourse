@@ -1,0 +1,55 @@
+@import "@src/common.scss";
+.circle {
+	$r:120vw;
+	width: $r;
+	height: $r;
+	border-radius: 50%;
+	left: -10vw;
+	top: -$r/2;
+	background: linear-gradient(90deg, #51A1F8, #5C51DD  );
+	position: absolute;
+	z-index: 1;
+}
+#user {
+	margin-top: 10px;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	z-index: 2;
+	#info {
+		margin: 0 40px;
+		padding: 40px;
+		color: $font-color;
+		font-size: $big-font;
+		background: #546a95;
+		background: linear-gradient(135deg, #546a95 10%, #3b4662);
+		border-radius: 20px;
+		.p {
+			margin: 18px 0;
+		}
+		.p:nth-of-type(1) {
+			font-size: $superBig-font;
+			font-weight: bold;
+		}
+		.p:nth-of-type(2) {
+		}
+	}
+	#settings {
+		padding-left: 8px;
+		height: auto;
+		margin-top: 20px;
+		overflow-y: scroll;
+
+		.title2 {
+			margin-top: 40px;
+			padding: 0 65px 30px;
+			font-weight: bold;
+		}
+		.p {
+			color: $font-color;
+			margin: 20px 40px;
+		}
+	}
+}

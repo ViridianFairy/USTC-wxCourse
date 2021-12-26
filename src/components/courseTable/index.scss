@@ -1,126 +1,139 @@
-@import '@src/common.scss';
+@import "@src/common.scss";
 .courseTable {
-   $zero-width: 5%;
-   $x-number: 7;
-   $y-number: 10;
-   $avail-width: (100% - $zero-width) / $x-number;
-   // 日期部分高度
-   $header-height: 90px;
-   // 主框高度
-   $main-height: calc(100% - #{$header-height});
-  //  $main-height: calc(100vh - #{$header-height} - 2px);
+	$zero-width: 5%;
+	$x-number: 7;
+	$y-number: 10;
+	$avail-width: (100% - $zero-width) / $x-number;
+	// 日期部分高度
+	$header-height: 90px;
+	// 主框高度
+	$main-height: calc(100% - #{$header-height});
+	//  $main-height: calc(100vh - #{$header-height} - 2px);
 
-   width: calc(100% - 2px);
-   height: 100%;
-   overflow-y: hidden;
- 
-   .header {
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     border-bottom-color: $border-color;
-     height: $header-height;
-     font-size: $normal-font;
-     color: $font-color-light;
-     & .div:first-of-type { //月份
-      //  visibility: hidden; 
-      // 如果要隐藏月份的话
-       width: $zero-width;
-     }
-     & .div:nth-of-type(n + 2) {
-       width: $avail-width;
-     }
-     & .div { //日期
-       text-align: center;
-       .day{
-         & .p:nth-child(1){
-          font-size: $small-font;
-         }
-         & .p:nth-child(2){
-          margin-top: 6px;
-          font-size: $big-font;
-          font-weight: 600;
-         }
-       }
-       .blue{
-        color:#65a4db;
-        font-weight: bold;
-        & .p:nth-child(2)::before{
-            position: absolute;
-            content:"";
-         }
-      }
-       .month{
-         font-size: $small-font;
-       }
-     }
-   }
-   .main {
-     overflow: hidden;
-     display: flex;
-     // justify-items: center;
-     flex-direction: row;
-     border-bottom-color: $border-color;
-     width: 100%;
-     height: $main-height;
-     & .section {  //通用竖栏容器
-       // overflow: hidden;
-       display: flex;
-       flex-direction: column;
-       height: 100%;
-       justify-content: flex-start;
-       // background-color: rgba(255, 255, 255, 0.616);
-       & .block {
-         width: 100%;
-         height: 100%;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         border-top: 1px dashed $border-color;
-         border-right: 1px dashed $border-color;
-         flex-direction: column;
-         position: relative;
-         .course {
-           position: absolute;
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           justify-content: center;
-           border-radius: 16px;
-           font-size: $normal-font;
-           font-weight: normal;
-           color:rgb(255, 255, 255);
-          //  text-shadow: 2px 2px 2px rgba(104, 104, 104, 0.2);
-           // border: 1px dashed rgba(245, 245, 245, 0.753);
-           .p{
-             visibility:visible;
-             margin:4px 0;
-           }
-         }
-       }
-     }
-     & .section:nth-of-type(n + 2) {  //课程竖栏容器
-       // background-color: rgba(255, 255, 255, 0.507);
-       width: $avail-width;
-       text-align: center;
-       & .p{
-         visibility: hidden;
-       }
-     }
-     & .section:first-of-type { //时间竖栏容器
-       width: $zero-width;
-       // background-color: #f2f6f788;
-       font-size: $normal-font;
-       color:$font-color-light;
-       .p:first-of-type {
-         
-       }
-       .p:nth-of-type(2) {
-         
-       }
-       & .block {
-         // flex-shrink:0.5;
-       }
-     }
-   }
- }
+	width: calc(100% - 2px);
+	height: 100%;
+	overflow-y: hidden;
+
+	.header {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		border-bottom-color: $border-color;
+		height: $header-height;
+		font-size: $normal-font;
+		color: $font-color-light;
+		& .div:first-of-type {
+			//月份
+			//  visibility: hidden;
+			// 如果要隐藏月份的话
+			width: $zero-width;
+		}
+		& .div:nth-of-type(n + 2) {
+			width: $avail-width;
+		}
+		& .div {
+			//日期
+			text-align: center;
+			.day {
+				padding: 2px;
+				border-radius: 10px;
+				& .p:nth-child(1) {
+					font-size: $small-font;
+				}
+				& .p:nth-child(2) {
+					margin-top: 6px;
+					font-size: $big-font;
+					font-weight: 600;
+				}
+			}
+			.blue {
+				color: #ffffff;
+				font-weight: bold;
+				& .p:nth-child(2)::before {
+					position: absolute;
+					content: "";
+				}
+			}
+			.month {
+				font-size: $small-font;
+			}
+		}
+	}
+	.main {
+		overflow: hidden;
+		display: flex;
+		// justify-items: center;
+		flex-direction: row;
+		border-bottom-color: $border-color;
+		width: 100%;
+		height: $main-height;
+		& .section {
+			//通用竖栏容器
+			// overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			justify-content: flex-start;
+			// background-color: rgba(255, 255, 255, 0.616);
+			& .block {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-top: 1px dashed $border-color;
+				border-right: 1px dashed $border-color;
+				flex-direction: column;
+				position: relative;
+				.course {
+					position: absolute;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					border-radius: 16px;
+					font-size: $normal-font;
+					font-weight: normal;
+					padding: 0 5px;
+					color: rgb(255, 255, 255);
+					//  text-shadow: 2px 2px 2px rgba(104, 104, 104, 0.2);
+					// border: 1px dashed rgba(245, 245, 245, 0.753);
+					.p {
+						visibility: visible;
+						margin: 4px 0;
+					}
+					&:focus, &:active{
+						filter:brightness(0.9)
+					}
+				}
+			}
+			& .block2{
+				
+				
+			}
+		}
+		& .section:nth-of-type(n + 2) {
+			//课程竖栏容器
+			// background-color: rgba(255, 255, 255, 0.507);
+			width: $avail-width;
+			text-align: center;
+			& .p {
+				visibility: hidden;
+			}
+		}
+		& .section:first-of-type {
+			//时间竖栏容器
+			width: $zero-width;
+			// background-color: #f2f6f788;
+			font-size: $normal-font;
+			color: $font-color-light;
+			.p:first-of-type {
+			}
+			.p:nth-of-type(2) {
+			}
+			& .block {
+				// flex-shrink:0.5;
+			}
+		}
+	}
+}

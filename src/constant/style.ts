@@ -22,7 +22,7 @@ export const style = {
 	 * @returns 背景颜色，字体颜色
 	 */
 	getPauseColor:(): [string, string]=>{
-		return ["#F1F1F1AD","#CFCFCF"]
+		return ["#42424299","#ADADAD"]
 	}
 }
 const colorArr: ColorType[] = [

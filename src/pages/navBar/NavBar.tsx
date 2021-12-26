@@ -1,12 +1,22 @@
 import Taro from '@tarojs/taro';
 // React
 import { View, Text , Button} from '@tarojs/components';
-import { AtIcon }  from 'taro-ui'
+import { AtIcon, AtToast }  from 'taro-ui'
 import React, { Component } from 'react'
 import './index.scss'
 interface PropsType {
-  needBackIcon:boolean,
+  bubble:{
+    icon: string,
+    text: string
+  } | undefined
   mainTitle:string
+}
+interface NavBar{
+  state:{
+    navBarHeight: number,
+    isOpened: boolean
+  },
+  props:PropsType
 }
 class NavBar extends Component {
 
@@ -14,6 +24,7 @@ class NavBar extends Component {
     super(props)
     this.state={
       navBarHeight:0,
+      isOpened:false,
     }
   }
 
@@ -23,29 +34,37 @@ class NavBar extends Component {
 
   getNavHeight(){
     let menuButtonObject = wx.getMenuButtonBoundingClientRect();
-    console.log('wx.getMenuButtonBoundingClientRect()',menuButtonObject)
+    // console.log('wx.getMenuButtonBoundingClientRect()',menuButtonObject)
     var sysinfo = wx.getSystemInfoSync();
-    console.log('wx.getSystemInfoSync()',sysinfo)
+    // console.log('wx.getSystemInfoSync()',sysinfo)
     let statusBarHeight = sysinfo.statusBarHeight;
     let menuBottonHeight =  menuButtonObject.height;
     let menuBottonTop =  menuButtonObject.top;
     let navBarHeight = statusBarHeight + menuBottonHeight + (menuBottonTop - statusBarHeight) * 2 ; 
     this.setState({
+      ...this.state,
       navBarHeight,
     })
   }
 
-  goBackPage(){
-    Taro.navigateBack({
-      delta: 1
+  showBubble(){
+    console.log('点击');
+    
+    this.setState({
+      ...this.state,
+      isOpened:true,
     })
   }
 
   render () {
-    let { needBackIcon=true, mainTitle='' } = this.props as PropsType
+    let { bubble=undefined, mainTitle='' } = this.props as PropsType
     return (
       <View className='nav_custom_bar' style={{height:` ${this.state.navBarHeight}px`}}>
-       <AtIcon className={`nav_custom_bar_back ${needBackIcon?'':'hidden'}`} value='chevron-left' size='22' color='#fff' onClick={()=>{this.goBackPage()}}></AtIcon>
+       {bubble && 
+       <AtIcon className={`nav_custom_bar_back ${bubble?'':'hidden'}`} value={bubble.icon} size='22' color='#ddd' onClick={()=>{this.showBubble()}}>
+       </AtIcon>
+       }
+       {bubble &&<AtToast isOpened={this.state.isOpened} text={bubble.text} icon={bubble.icon}></AtToast>}
        <Text className='nav_custom_bar_title'>{mainTitle}</Text>
        <View></View>
       </View>
@@ -53,3 +72,9 @@ class NavBar extends Component {
   }
 }
 export default NavBar;
+
+
+interface PropType{
+  navBarHeight: number,
+  isOpened:boolean
+}

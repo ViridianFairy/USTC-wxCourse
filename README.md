@@ -15,4 +15,5 @@ git clone https://github.com/wuba/Taro-Mortgage-Calculator.git
 12.25 TODO
 1. 完成【主页Page】
 1. 完成【我的Page】
-
+1. key对性能有无影响
+1. 上下固定，中间自适应的布局
