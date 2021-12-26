@@ -13,6 +13,7 @@ const CourseTable: FC<CourseComponentType> = props => {
 	const { setCourseBlockHeight, setCourseBlockWidth } = props
 	const { courseBlockHeight, courseBlockWidth } = props
 	const [finish, setFinish] = useState<1 | 0>(status)
+	const [touchStart, setTouchStart] = useState<{x:number, y:number}>({x:0,y:0})
 	const updateBlock = async () => {
 		try {
 			console.log('获取dom块高度...');
@@ -43,12 +44,22 @@ const CourseTable: FC<CourseComponentType> = props => {
 		if(courseBlockHeight !=0 ) return
 		updateBlock()
 	})
-	const onTouchStart = (event, val)=>{
-		console.log(event);
-		
+	const onTouchStart = (event)=>{
+		if(!event.changedTouches) return
+		const {clientX, clientY} = event.changedTouches[0]
+		setTouchStart({x:clientX, y:clientY})
 	}
 	const onTouchEnd = (event, val)=>{
-		console.log(event);
+		if(!event.changedTouches) return
+		const {clientX, clientY} = event.changedTouches[0]
+		var deltaX = clientX - touchStart.x
+		var deltaY= clientY - touchStart.y
+		console.log(deltaX);
+		
+		if(!(deltaX < 20 && deltaX > -20 && deltaY <20 && deltaY > -20)) return;
+		console.log(val);
+		
+		
 	}
 	const onClick = (val:DrawCourseType)=>{
 		if(typeof val =='string') return
